@@ -27,18 +27,18 @@ extensions = [
               language='c++',             # generate C++ code
               extra_compile_args=extra_compile_args,
               ),
-    Extension('cgrid3d',
-              sources=['cgrid3d.pyx'],  # additional source file(s)
-              include_dirs=include_dirs,
-              language='c++',             # generate C++ code
-              extra_compile_args=extra_compile_args,
-              ),
-    Extension('cmesh3d',
-              sources=['cmesh3d.pyx', 'Mesh3Dttcr.cpp'],
-              include_dirs=include_dirs,
-              language='c++',             # generate C++ code
-              extra_compile_args=extra_compile_args,
-              ),
+#     Extension('cgrid3d',
+#               sources=['cgrid3d.pyx'],  # additional source file(s)
+#               include_dirs=include_dirs,
+#               language='c++',             # generate C++ code
+#               extra_compile_args=extra_compile_args,
+#               ),
+#     Extension('cmesh3d',
+#               sources=['cmesh3d.pyx', 'Mesh3Dttcr.cpp'],
+#               include_dirs=include_dirs,
+#               language='c++',             # generate C++ code
+#               extra_compile_args=extra_compile_args,
+#               ),
 ]
 
 setup(

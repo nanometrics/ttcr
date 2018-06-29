@@ -1,20 +1,23 @@
 cmake_minimum_required(VERSION 2.8.7)
 project( ttcr )
 
-set( VTK_DIR /usr/local/VTK/lib/cmake/vtk-7.0 )
-set( EIGEN3_INCLUDE_DIR /usr/local/eigen/include/eigen3 )
-set( BOOST_ROOT /usr/local/boost )
+#set( VTK_DIR /usr/local/VTK/lib/cmake/vtk-7.0 )
+set( VTK_DIR /data/mount_doom/local/ogfw-release/include/vtk-7.1 )
+#set( EIGEN3_INCLUDE_DIR /usr/local/eigen/include/eigen3 )
+set (EIGEN3_INCLUDE_DIR /usr/include/eigen3 )
+#set( BOOST_ROOT /usr/local/boost )
+set (BOOST_ROOT /usr/share/boost-build )
 
 add_definitions(-DVTK)
 
-FIND_LIBRARY(C++_LIBRARY stdc++ /usr/local/gcc/lib)
+#FIND_LIBRARY(C++_LIBRARY stdc++11 /usr/lib/gcc)
 
 find_package(VTK 7.0 REQUIRED NO_MODULE)
 
 set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost 1.60.0 REQUIRED)
+find_package(Boost 1.58.0 REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
 IF( NOT EIGEN3_INCLUDE_DIR )
@@ -36,9 +39,9 @@ add_executable( ttcr3d ${ttcr3d_SRCS} )
 add_executable( ttcr2d ${ttcr2d_SRCS} )
 add_executable( ttcr2ds ${ttcr2ds_SRCS} )
 
-target_link_libraries(ttcr3d ${VTK_LIBRARIES} ${C++_LIBRARY})
-target_link_libraries(ttcr2d ${VTK_LIBRARIES} ${C++_LIBRARY})
-target_link_libraries(ttcr2ds ${VTK_LIBRARIES} ${C++_LIBRARY})
+target_link_libraries(ttcr3d ${VTK_LIBRARIES} )#${C++_LIBRARY})
+target_link_libraries(ttcr2d ${VTK_LIBRARIES} )#${C++_LIBRARY})
+target_link_libraries(ttcr2ds ${VTK_LIBRARIES} )#${C++_LIBRARY})
 
 set_property(TARGET ttcr3d ttcr2d ttcr2ds PROPERTY INSTALL_RPATH_USE_LINK_PATH TRUE)
 

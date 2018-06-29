@@ -201,7 +201,7 @@ namespace ttcr {
         }
 
         // rays
-        import_array();  // to use PyArray_SimpleNewFromData
+        _import_array();  // to use PyArray_SimpleNewFromData
 
         for ( size_t nv=0; nv<vTx.size(); ++nv ) {
             for ( size_t ni=0; ni<iTx[nv].size(); ++ni ) {
@@ -532,7 +532,7 @@ namespace ttcr {
                 traveltimes[ iTx[nv][ni] ] = tt[nv][ni];
             }
         }
-        import_array();  // to use PyArray_SimpleNewFromData
+        _import_array();  // to use PyArray_SimpleNewFromData
 
         // L
         // first element of tuple contains data, size is nnz
@@ -825,7 +825,7 @@ namespace ttcr {
         data_p = (double*)realloc( data_p, nnz*sizeof(double) );
         indices_p = (int64_t*)realloc( indices_p, nnz*sizeof(int64_t) );
 
-        import_array();  // to use PyArray_SimpleNewFromData
+        _import_array();  // to use PyArray_SimpleNewFromData
 
         npy_intp dims[] = {static_cast<npy_intp>(nnz)};
         PyObject* data = PyArray_SimpleNewFromData(1, dims, NPY_DOUBLE, data_p);
@@ -1043,7 +1043,7 @@ namespace ttcr {
         data_p = (double*)realloc( data_p, nnz*sizeof(double) );
         indices_p = (int64_t*)realloc( indices_p, nnz*sizeof(int64_t) );
 
-        import_array();  // to use PyArray_SimpleNewFromData
+        _import_array();  // to use PyArray_SimpleNewFromData
 
         npy_intp dims[] = {static_cast<npy_intp>(nnz)};
         PyObject* data = PyArray_SimpleNewFromData(1, dims, NPY_DOUBLE, data_p);

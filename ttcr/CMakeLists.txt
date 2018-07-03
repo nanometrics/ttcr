@@ -60,3 +60,13 @@ target_link_libraries(ttcr2ds ${VTK_LIBRARIES} )#${C++_LIBRARY})
 set_property(TARGET ttcr3d ttcr2d ttcr2ds PROPERTY INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 install(TARGETS ttcr3d ttcr2d ttcr2ds RUNTIME DESTINATION bin)
+
+#########################################
+# Python wrapper
+set(INSTALL_CODE "execute_process(")
+set(INSTALL_CODE "${INSTALL_CODE} COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/../ttcrpy/setup.py build_ext --inplace")
+set(INSTALL_CODE "${INSTALL_CODE} install --prefix=${CMAKE_INSTALL_PREFIX}")
+set(INSTALL_CODE "${INSTALL_CODE} WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../ttcrpy")
+set(INSTALL_CODE "${INSTALL_CODE} )")
+message(STATUS "install = ${INSTALL_CODE}")
+install(CODE "${INSTALL_CODE}")

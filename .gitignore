@@ -8,4 +8,12 @@ debug_tt_mex/
 test_lelievre11.py
 ttcr_matlab/*.mex*
 xcuserdata/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+CMakeFiles
+ttcr/ttcr2d
+ttcr/ttcr2ds
+ttcr/ttcr3d
 
